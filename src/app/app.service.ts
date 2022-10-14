@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { DriverTable, MRData, result } from './app.component';
 import { environment } from 'src/environments/environment';
+import { ResponseDrivers } from './model/drivers/ResponseDrivers';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +12,6 @@ export class AppService {
   constructor(private http: HttpClient) {}
 
   getDriver() {
-    return this.http.get<result>(this.url);
+    return this.http.get<ResponseDrivers>(this.url);
   }
 }

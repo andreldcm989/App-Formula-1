@@ -1,38 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { first, tap } from 'rxjs';
 import { AppService } from './app.service';
-
-export interface result {
-  MRData: MRData;
-}
-
-export interface MRData {
-  xmlns: string;
-  series: string;
-  url: string;
-  limit: string;
-  offset: string;
-  total: string;
-  DriverTable: DriverTable;
-}
-
-export interface DriverTable {
-  driverId: string;
-  Drivers: Driver[];
-}
-
-export interface Driver {
-  driverId: string;
-  permanentNumber: string;
-  code: string;
-  url: string;
-  givenName: string;
-  familyName: string;
-  dateOfBirth: string;
-  nationality: string;
-}
+import { Driver } from './model/drivers/Driver';
+import { ResponseDrivers } from './model/drivers/ResponseDrivers';
 
 @Component({
   selector: 'app-root',
@@ -42,13 +12,16 @@ export interface Driver {
 export class AppComponent {
   title = 'formula1';
 
-  res!: MRData;
+  drivers!: Driver[];
 
   constructor(private service: AppService, private route: ActivatedRoute) {
     this.getDriver();
   }
 
   getDriver() {
-    return this.service.getDriver().subscribe((res) => (this.res = res.MRData));
+    return this.service.getDriver().subscribe((res) => {
+      this.drivers = res.MRData.DriverTable.Drivers;
+      console.log(res);
+    });
   }
 }
