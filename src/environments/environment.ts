@@ -2,14 +2,15 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { HttpHeaders } from '@angular/common/http';
+
 export const environment = {
   production: false,
   API: 'http://ergast.com/api/f1',
   RAPIDAPI_F1: 'https://api-formula-1.p.rapidapi.com',
-  KEY: {
-    'x-rapidapi-key': 'f106352d4emsh6cd59fabb51059dp1ec488jsn218d1cef7a11',
-  },
-  HOST: { 'X-RapidAPI-Host': 'api-formula-1.p.rapidapi.com' },
+  HEADERS: new HttpHeaders()
+    .set('x-rapidapi-key', 'f106352d4emsh6cd59fabb51059dp1ec488jsn218d1cef7a11')
+    .set('x-rapidapi-host', 'api-formula-1.p.rapidapi.com'),
 };
 
 /*
