@@ -9,9 +9,7 @@ import { SeasonsService } from './seasons.service';
 export class SeasonsComponent {
   seasons: number[] = [];
 
-  constructor(private service: SeasonsService) {
-    this.getSeasons();
-  }
+  constructor(private service: SeasonsService) {}
 
   getSeasons() {
     this.service.seasonsList().subscribe((response) => {

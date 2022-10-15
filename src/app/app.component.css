@@ -1,0 +1,117 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: 70px 1fr 70px;
+  grid-template-areas:
+    "header header"
+    "main main"
+    "footer footer";
+  transition: 0.3s all ease-in-out;
+}
+
+.header {
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: header;
+}
+
+.header h1 {
+  font-weight: bold;
+  font-style: italic;
+  color: #ffffff;
+}
+
+#navbar-checkbox {
+  visibility: hidden;
+}
+.navbar-icon {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.navbar-label {
+  margin: 10px 0 10px 20px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-checkbox_line {
+  width: 40px;
+  height: 8px;
+  position: absolute;
+  border-radius: 4px;
+  background: #ffffff;
+  transition: 0.3s all ease-in-out;
+}
+
+.navbar-checkbox_line:nth-child(1) {
+  top: 6.5px;
+}
+.navbar-checkbox_line:nth-child(2) {
+  top: 21px;
+}
+.navbar-checkbox_line:nth-child(3) {
+  top: 35.5px;
+}
+
+#navbar-checkbox:checked + .navbar-label .navbar-checkbox_line:nth-child(1) {
+  top: 20px;
+  transform: rotate(45deg);
+}
+
+#navbar-checkbox:checked + .navbar-label .navbar-checkbox_line:nth-child(2) {
+  transform: translateY(-40px);
+  visibility: hidden;
+  opacity: 0;
+}
+
+#navbar-checkbox:checked + .navbar-label .navbar-checkbox_line:nth-child(3) {
+  top: 20px;
+  transform: rotate(-45deg);
+}
+
+.menu-navbar {
+  grid-area: nav;
+  background-color: #383838;
+  position: relative;
+  display: none;
+  transition: 0.3s all ease-in-out;
+}
+
+.menu-navbar ul {
+  position: absolute;
+  width: 100%;
+  top: 70px;
+}
+
+.menu-navbar ul li {
+  display: block;
+  margin: 0 3px 3px 0;
+  background-color: aliceblue;
+}
+
+.main {
+  grid-area: main;
+  background-color: #e8e8e8;
+}
+
+.footer {
+  background: red;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: footer;
+}

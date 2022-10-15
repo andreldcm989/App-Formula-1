@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AppService } from './app.service';
 import { Driver } from './model/drivers/Driver';
-import { ResponseDrivers } from './model/drivers/ResponseDrivers';
 
 @Component({
   selector: 'app-root',
@@ -10,18 +9,29 @@ import { ResponseDrivers } from './model/drivers/ResponseDrivers';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'formula1';
-
+  title: string = 'formula1';
   drivers!: Driver[];
+  inputChecked: boolean = false;
 
-  constructor(private service: AppService, private route: ActivatedRoute) {
-    this.getDriver();
-  }
+  constructor(private service: AppService, private route: ActivatedRoute) {}
 
   getDriver() {
     return this.service.getDriver().subscribe((res) => {
       this.drivers = res.MRData.DriverTable.Drivers;
       console.log(res);
     });
+  }
+
+  openedMenu(container: HTMLElement, navbar: HTMLElement) {
+    this.inputChecked = !this.inputChecked;
+    if (this.inputChecked) {
+      container.style.gridTemplateAreas =
+        '"nav header" "nav main" "footer footer"';
+      navbar.style.display = 'block';
+    } else {
+      container.style.gridTemplateAreas =
+        '"header header" "main main" "footer footer"';
+      navbar.style.display = 'none';
+    }
   }
 }
