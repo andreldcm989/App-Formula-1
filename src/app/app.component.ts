@@ -34,4 +34,8 @@ export class AppComponent {
       navbar.style.display = 'none';
     }
   }
+
+  themeSelected(option: string) {
+    console.log(option);
+  }
 }

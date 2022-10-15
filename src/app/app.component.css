@@ -8,7 +8,6 @@
     "header header"
     "main main"
     "footer footer";
-  transition: 0.3s all ease-in-out;
 }
 
 .header {
@@ -82,12 +81,24 @@
   transform: rotate(-45deg);
 }
 
+.theme {
+  position: absolute;
+  right: 30px;
+}
+
+.theme select {
+  border-radius: 8px;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
 .menu-navbar {
   grid-area: nav;
   background-color: #383838;
+  color: #000000;
   position: relative;
   display: none;
-  transition: 0.3s all ease-in-out;
 }
 
 .menu-navbar ul {
@@ -100,11 +111,18 @@
   display: block;
   margin: 0 3px 3px 0;
   background-color: aliceblue;
+  cursor: pointer;
+}
+
+.menu-navbar ul li:hover {
+  background: red;
+  color: #ffffff;
 }
 
 .main {
   grid-area: main;
   background-color: #e8e8e8;
+  display: flex;
 }
 
 .footer {
@@ -114,4 +132,8 @@
   align-items: center;
   justify-content: center;
   grid-area: footer;
+}
+
+a {
+  text-decoration: none;
 }
