@@ -22,17 +22,8 @@ export class AppComponent {
     });
   }
 
-  openedMenu(container: HTMLElement, navbar: HTMLElement) {
+  inputCheckbox() {
     this.inputChecked = !this.inputChecked;
-    if (this.inputChecked) {
-      container.style.gridTemplateAreas =
-        '"nav header" "nav main" "footer footer"';
-      navbar.style.display = 'block';
-    } else {
-      container.style.gridTemplateAreas =
-        '"header header" "main main" "footer footer"';
-      navbar.style.display = 'none';
-    }
   }
 
   themeSelected(option: string) {

@@ -10,6 +10,13 @@
     "footer footer";
 }
 
+.container:has(> .header .navbar-icon #navbar-checkbox:checked) {
+  grid-template-areas:
+    "nav header"
+    "nav main"
+    "footer footer";
+}
+
 .header {
   background: red;
   display: flex;
@@ -25,7 +32,7 @@
 }
 
 #navbar-checkbox {
-  visibility: hidden;
+  display: none;
 }
 .navbar-icon {
   position: absolute;
@@ -98,7 +105,6 @@
   background-color: #383838;
   color: #000000;
   position: relative;
-  display: none;
 }
 
 .menu-navbar ul {
@@ -114,9 +120,14 @@
   cursor: pointer;
 }
 
-.menu-navbar ul li:hover {
+.menu-navbar ul li a {
+  color: #000000;
+}
+
+.menu-navbar ul li a:hover {
   background: red;
   color: #ffffff;
+  font-weight: bold;
 }
 
 .main {
@@ -136,4 +147,5 @@
 
 a {
   text-decoration: none;
+  display: block;
 }

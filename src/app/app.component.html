@@ -5,7 +5,7 @@
       <label
         class="navbar-label"
         for="navbar-checkbox"
-        (click)="openedMenu(container, navbar)"
+        (click)="inputCheckbox()"
       >
         <div class="navbar-checkbox_line"></div>
         <div class="navbar-checkbox_line"></div>
@@ -29,7 +29,7 @@
       </select>
     </div>
   </header>
-  <nav class="menu-navbar" #navbar>
+  <nav class="menu-navbar" #navbar *ngIf="inputChecked == true">
     <ul>
       <li><a routerLink="">Página Principal</a></li>
       <li><a routerLink="/seasons">Temporadas</a></li>
