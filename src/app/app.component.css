@@ -295,6 +295,23 @@ main.mclaren {
   background: #fff;
 }
 
+nav.alfaromeo {
+  background-color: #006221;
+  color: #fff;
+}
+
+nav.alfaromeo ul li a {
+  color: #fff;
+}
+nav.alfaromeo ul li a:hover,
+nav.alfaromeo ul li a:focus {
+  background: #a51d2f;
+}
+main.alfaromeo {
+  background-color: #e8e8e8;
+  color: #000000;
+}
+
 /*-----------Tema Alpha Tauri----------------*/
 .alphatauri {
   background: #011321;
