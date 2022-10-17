@@ -8,8 +8,11 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 export class AppComponent {
   title: string = 'formula1';
   inputChecked: boolean = false;
-  @ViewChild('header', { static: true }) header!: ElementRef;
   @ViewChild('themeList', { static: true }) themeList!: ElementRef;
+  @ViewChild('header', { static: true }) header!: ElementRef;
+  @ViewChild('navbar', { static: true }) navbar!: ElementRef;
+  @ViewChild('main', { static: true }) main!: ElementRef;
+  @ViewChild('footer', { static: true }) footer!: ElementRef;
   theme!: string;
 
   constructor() {}
@@ -19,14 +22,20 @@ export class AppComponent {
     console.log(this.theme);
   }
 
-  ngOnChange() {
-    this.theme = this.themeList.nativeElement.value;
-    console.log(this.theme);
-  }
-
   inputCheckbox() {
     this.inputChecked = !this.inputChecked;
   }
 
-  themeSelected(option: string) {}
+  themeSelected(option: string) {
+    this.header.nativeElement.classList.remove(this.theme);
+    this.navbar.nativeElement.classList.remove(this.theme);
+    this.main.nativeElement.classList.remove(this.theme);
+    this.footer.nativeElement.classList.remove(this.theme);
+    this.header.nativeElement.classList.add(option);
+    this.navbar.nativeElement.classList.add(option);
+    this.main.nativeElement.classList.add(option);
+    this.footer.nativeElement.classList.add(option);
+    this.theme = option;
+    console.log(this.navbar.nativeElement.classList);
+  }
 }

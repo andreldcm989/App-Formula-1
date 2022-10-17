@@ -18,14 +18,23 @@
 }
 
 .header {
-  background: #ff0000;
   display: flex;
   align-items: center;
   justify-content: center;
   grid-area: header;
   font-weight: bold;
   font-style: italic;
-  color: #ffffff;
+  transition: 0.3s all ease-in-out;
+}
+
+.header h1 {
+  background: inherit;
+  color: inherit;
+}
+
+.header h1 a {
+  background: inherit;
+  color: inherit;
 }
 
 #navbar-checkbox {
@@ -55,7 +64,6 @@
   height: 8px;
   position: absolute;
   border-radius: 4px;
-  background: #ffffff;
   transition: 0.3s all ease-in-out;
 }
 
@@ -97,15 +105,8 @@
   outline: none;
 }
 
-.theme select > option:hover {
-  background-color: aqua;
-  color: #000000;
-}
-
 .menu-navbar {
   grid-area: nav;
-  background-color: #383838;
-  color: #000000;
   position: relative;
 }
 
@@ -118,46 +119,169 @@
 .menu-navbar ul li {
   display: block;
   margin: 0 3px 3px 0;
-  background-color: aliceblue;
   cursor: pointer;
-}
-
-.menu-navbar ul li a {
-  color: #000000;
-}
-
-.menu-navbar ul li a:hover {
-  background: red;
-  color: #ffffff;
-  font-weight: bold;
 }
 
 .main {
   grid-area: main;
-  background-color: #e8e8e8;
   display: flex;
 }
 
 .footer {
-  background: red;
-  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   grid-area: footer;
+  transition: 0.3s all ease-in-out;
+}
+
+.footer h4 {
+  background: inherit;
+  color: inherit;
 }
 
 a {
   text-decoration: none;
   display: block;
+  font-weight: bold;
 }
 
+li a {
+  transition: 0.3s all ease-in-out;
+}
+
+/*-----------Tema Default----------------*/
 .default {
   background: #ff0000;
   color: #ffffff;
 }
-
+.default .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #ffffff;
+}
+nav.default {
+  background-color: #383838;
+  color: #000000;
+}
+nav.default ul li a {
+  color: #ffffff;
+}
+nav.default ul li a:hover {
+  background: #ff0000;
+  color: #ffffff;
+}
+main.default {
+  background-color: #e8e8e8;
+  color: #000;
+}
+/*-----------Tema Mercedes----------------*/
 .mercedes {
   background: #000000;
   color: #0ca597;
+}
+
+.mercedes .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #0ca597;
+}
+
+nav.mercedes {
+  background-color: #141414;
+  color: #fff;
+}
+
+nav.mercedes ul li a {
+  color: #fff;
+}
+nav.mercedes ul li a:hover {
+  color: #0ca597;
+  background: #000;
+}
+main.mercedes {
+  background-color: #e8e8e8;
+  color: #000;
+}
+
+/*-----------Tema Red Bull----------------*/
+.redbull {
+  background: #001a30;
+  color: #fcd700;
+}
+
+.redbull .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #fcd700;
+}
+
+/*-----------Tema Ferrari----------------*/
+.ferrari {
+  background: #da291c;
+  color: #fcd112;
+}
+
+.ferrari .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #fcd112;
+}
+
+/*-----------Tema McLaren----------------*/
+.mclaren {
+  background: #ff8000;
+  color: #000;
+}
+.mclaren .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #000;
+}
+
+/*-----------Tema Alfa Romeo----------------*/
+.alfaromeo {
+  background: #a51d2f;
+  color: #fff;
+}
+
+.alfaromeo .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #fff;
+}
+
+/*-----------Tema Alpha Tauri----------------*/
+.alphatauri {
+  background: #011321;
+  color: #fff;
+}
+.alphatauri .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #fff;
+}
+
+/*-----------Tema Williams----------------*/
+.williams {
+  background: #041e42;
+  color: #fff;
+}
+.williams .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #fff;
+}
+
+/*-----------Tema Aston Martin----------------*/
+.astonmartin {
+  background: #00352f;
+  color: #cedc00;
+}
+
+.astonmartin .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #cedc00;
+}
+
+/*-----------Tema Alpine----------------*/
+.alpine {
+  background: #0c1d2c;
+  color: #ffffff;
+}
+.alpine .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #ffffff;
+}
+
+/*-----------Tema Haas----------------*/
+.haas {
+  background: #fff;
+  color: #e6002d;
+}
+
+.haas .navbar-icon .navbar-label .navbar-checkbox_line {
+  background: #e6002d;
 }

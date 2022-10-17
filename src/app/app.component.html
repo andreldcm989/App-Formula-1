@@ -2,15 +2,19 @@
   <header class="header default" #header>
     <div class="navbar-icon">
       <input #checkbox type="checkbox" name="menu" id="navbar-checkbox" />
-      <label class="navbar-label" for="navbar-checkbox">
+      <label
+        class="navbar-label"
+        for="navbar-checkbox"
+        (click)="inputCheckbox()"
+      >
         <div class="navbar-checkbox_line"></div>
         <div class="navbar-checkbox_line"></div>
         <div class="navbar-checkbox_line"></div>
       </label>
     </div>
-    <a routerLink="">
-      <h1 class="default">Formula 1</h1>
-    </a>
+    <h1>
+      <a routerLink=""> Formula 1 </a>
+    </h1>
     <div class="theme">
       <select
         #themeList
@@ -18,28 +22,35 @@
         id="theme-list"
         (change)="themeSelected(themeList.value)"
       >
-        <option value="default" class="theme-list_item">
-          Selecione o tema
-        </option>
-        <option value="mercedes" class="theme-list_item">Mercedes</option>
+        <option value="default" class="theme-list_item">Tema Padrão</option>
         <option value="redbull" class="theme-list_item">Red Bull</option>
+        <option value="mercedes" class="theme-list_item">Mercedes</option>
+        <option value="ferrari" class="theme-list_item">Ferrari</option>
         <option value="mclaren" class="theme-list_item">McLaren</option>
+        <option value="alpine" class="theme-list_item">Alpine</option>
+        <option value="alfaromeo" class="theme-list_item">Alfa Romeo</option>
+        <option value="alphatauri" class="theme-list_item">Alpha Tauri</option>
+        <option value="astonmartin" class="theme-list_item">
+          Aston Martin
+        </option>
+        <option value="haas" class="theme-list_item">Haas</option>
+        <option value="williams" class="theme-list_item">Williams</option>
       </select>
     </div>
   </header>
-  <nav class="menu-navbar default" #navbar *ngIf="inputChecked == true">
-    <ul class="default">
+  <nav class="menu-navbar default" #navbar [hidden]="!inputChecked">
+    <ul>
       <li><a routerLink="">Página Principal</a></li>
       <li><a routerLink="/seasons">Temporadas</a></li>
-      <li>Circuitos</li>
-      <li>Equipes</li>
-      <li>Pilotos</li>
+      <li><a routerLink="#">Circuitos</a></li>
+      <li><a routerLink="#">Equipes</a></li>
+      <li><a routerLink="#">Pilotos</a></li>
     </ul>
   </nav>
-  <main class="main">
+  <main #main class="main default">
     <router-outlet></router-outlet>
   </main>
-  <footer class="footer default">
+  <footer #footer class="footer default">
     <h4 class="default">
       &copy;André Cruz, 2022. Todos os direitos reservados.
     </h4>
