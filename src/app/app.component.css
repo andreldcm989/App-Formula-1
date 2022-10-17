@@ -268,6 +268,23 @@ main.ferrari {
   background: #000;
 }
 
+nav.mclaren {
+  background-color: #929292;
+  color: #fff;
+}
+
+nav.mclaren ul li a {
+  color: #000;
+}
+nav.mclaren ul li a:hover,
+nav.mclaren ul li a:focus {
+  background: #ff8000;
+}
+main.mclaren {
+  background-color: #e8e8e8;
+  color: #000000;
+}
+
 /*-----------Tema Alfa Romeo----------------*/
 .alfaromeo {
   background: #a51d2f;
