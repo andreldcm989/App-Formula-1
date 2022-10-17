@@ -108,6 +108,7 @@
 .menu-navbar {
   grid-area: nav;
   position: relative;
+  transition: 0.3s all ease-in-out;
 }
 
 .menu-navbar ul {
@@ -152,15 +153,15 @@ li a {
 
 /*-----------Tema Default----------------*/
 .default {
-  background: #ff0000;
+  background: #e10600;
   color: #ffffff;
 }
 .default .navbar-icon .navbar-label .navbar-checkbox_line {
   background: #ffffff;
 }
 nav.default {
-  background-color: #383838;
-  color: #000000;
+  background-color: #15151e;
+  color: #ffffff;
 }
 nav.default ul li a {
   color: #ffffff;
@@ -368,7 +369,7 @@ main.williams {
 
 /*-----------Tema Aston Martin----------------*/
 .astonmartin {
-  background: #00352f;
+  background: #00594f;
   color: #cedc00;
 }
 
@@ -376,13 +377,49 @@ main.williams {
   background: #cedc00;
 }
 
+nav.astonmartin {
+  background-color: #00352f;
+  color: #fff;
+}
+
+nav.astonmartin ul li a {
+  color: #fff;
+}
+nav.astonmartin ul li a:hover,
+nav.astonmartin ul li a:focus {
+  background: #cedc00;
+  color: #00352f;
+}
+main.astonmartin {
+  background-color: #e8e8e8;
+  color: #000000;
+}
+
 /*-----------Tema Alpine----------------*/
 .alpine {
   background: #0c1d2c;
-  color: #ffffff;
+  color: #e65f9a;
 }
 .alpine .navbar-icon .navbar-label .navbar-checkbox_line {
   background: #ffffff;
+}
+
+nav.alpine {
+  background-color: #e65f9a;
+  color: #fff;
+}
+
+nav.alpine ul li a {
+  color: #fff;
+}
+nav.alpine ul li a:hover,
+nav.alpine ul li a:focus {
+  background: #0c1d2c;
+  color: #ffffff;
+}
+main.alpine {
+  background-color: #e8e8e8;
+  color: #000000;
 }
 
 /*-----------Tema Haas----------------*/
@@ -393,4 +430,22 @@ main.williams {
 
 .haas .navbar-icon .navbar-label .navbar-checkbox_line {
   background: #e6002d;
+}
+
+nav.haas {
+  background-color: #0032a0;
+  color: #fff;
+}
+
+nav.haas ul li a {
+  color: #fff;
+}
+nav.haas ul li a:hover,
+nav.haas ul li a:focus {
+  background: #fff;
+  color: #0032a0;
+}
+main.haas {
+  background-color: #e8e8e8;
+  color: #000000;
 }
