@@ -1,7 +1,4 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AppService } from './app.service';
-import { Driver } from './model/drivers/Driver';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,23 +7,26 @@ import { Driver } from './model/drivers/Driver';
 })
 export class AppComponent {
   title: string = 'formula1';
-  drivers!: Driver[];
   inputChecked: boolean = false;
+  @ViewChild('header', { static: true }) header!: ElementRef;
+  @ViewChild('themeList', { static: true }) themeList!: ElementRef;
+  theme!: string;
 
-  constructor(private service: AppService, private route: ActivatedRoute) {}
+  constructor() {}
 
-  getDriver() {
-    return this.service.getDriver().subscribe((res) => {
-      this.drivers = res.MRData.DriverTable.Drivers;
-      console.log(res);
-    });
+  ngOnInit() {
+    this.theme = this.themeList.nativeElement.value;
+    console.log(this.theme);
+  }
+
+  ngOnChange() {
+    this.theme = this.themeList.nativeElement.value;
+    console.log(this.theme);
   }
 
   inputCheckbox() {
     this.inputChecked = !this.inputChecked;
   }
 
-  themeSelected(option: string) {
-    console.log(option);
-  }
+  themeSelected(option: string) {}
 }

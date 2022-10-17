@@ -1,19 +1,15 @@
 <div class="container" #container>
-  <header class="header">
+  <header class="header default" #header>
     <div class="navbar-icon">
       <input #checkbox type="checkbox" name="menu" id="navbar-checkbox" />
-      <label
-        class="navbar-label"
-        for="navbar-checkbox"
-        (click)="inputCheckbox()"
-      >
+      <label class="navbar-label" for="navbar-checkbox">
         <div class="navbar-checkbox_line"></div>
         <div class="navbar-checkbox_line"></div>
         <div class="navbar-checkbox_line"></div>
       </label>
     </div>
     <a routerLink="">
-      <h1>Formula 1</h1>
+      <h1 class="default">Formula 1</h1>
     </a>
     <div class="theme">
       <select
@@ -22,15 +18,17 @@
         id="theme-list"
         (change)="themeSelected(themeList.value)"
       >
-        <option value="" class="theme-list_item">Selecione o tema</option>
+        <option value="default" class="theme-list_item">
+          Selecione o tema
+        </option>
         <option value="mercedes" class="theme-list_item">Mercedes</option>
         <option value="redbull" class="theme-list_item">Red Bull</option>
         <option value="mclaren" class="theme-list_item">McLaren</option>
       </select>
     </div>
   </header>
-  <nav class="menu-navbar" #navbar *ngIf="inputChecked == true">
-    <ul>
+  <nav class="menu-navbar default" #navbar *ngIf="inputChecked == true">
+    <ul class="default">
       <li><a routerLink="">Página Principal</a></li>
       <li><a routerLink="/seasons">Temporadas</a></li>
       <li>Circuitos</li>
@@ -41,7 +39,9 @@
   <main class="main">
     <router-outlet></router-outlet>
   </main>
-  <footer class="footer">
-    <h4>&copy;André Cruz, 2022. Todos os direitos reservados.</h4>
+  <footer class="footer default">
+    <h4 class="default">
+      &copy;André Cruz, 2022. Todos os direitos reservados.
+    </h4>
   </footer>
 </div>

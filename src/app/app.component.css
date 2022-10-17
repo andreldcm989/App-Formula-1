@@ -18,14 +18,11 @@
 }
 
 .header {
-  background: red;
+  background: #ff0000;
   display: flex;
   align-items: center;
   justify-content: center;
   grid-area: header;
-}
-
-.header h1 {
   font-weight: bold;
   font-style: italic;
   color: #ffffff;
@@ -100,6 +97,11 @@
   outline: none;
 }
 
+.theme select > option:hover {
+  background-color: aqua;
+  color: #000000;
+}
+
 .menu-navbar {
   grid-area: nav;
   background-color: #383838;
@@ -148,4 +150,14 @@
 a {
   text-decoration: none;
   display: block;
+}
+
+.default {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+.mercedes {
+  background: #000000;
+  color: #0ca597;
 }
