@@ -241,6 +241,24 @@ main.redbull {
   background: #fcd112;
 }
 
+nav.ferrari {
+  background-color: #474747;
+  color: #fff;
+}
+
+nav.ferrari ul li a {
+  color: #fcd700;
+}
+nav.ferrari ul li a:hover,
+nav.ferrari ul li a:focus {
+  color: #ff0000;
+  background: #fcd700;
+}
+main.ferrari {
+  background-color: #e8e8e8;
+  color: #000000;
+}
+
 /*-----------Tema McLaren----------------*/
 .mclaren {
   background: #ff8000;
