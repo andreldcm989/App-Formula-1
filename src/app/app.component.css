@@ -321,6 +321,24 @@ main.alfaromeo {
   background: #fff;
 }
 
+nav.alphatauri {
+  background-color: #003e6e;
+  color: #fff;
+}
+
+nav.alphatauri ul li a {
+  color: #fff;
+}
+nav.alphatauri ul li a:hover,
+nav.alphatauri ul li a:focus {
+  background: #ffffff;
+  color: #011321;
+}
+main.alphatauri {
+  background-color: #e8e8e8;
+  color: #000000;
+}
+
 /*-----------Tema Williams----------------*/
 .williams {
   background: #041e42;
