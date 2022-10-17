@@ -118,7 +118,7 @@
 
 .menu-navbar ul li {
   display: block;
-  margin: 0 3px 3px 0;
+  margin: 0 0 3px 5px;
   cursor: pointer;
 }
 
@@ -147,7 +147,7 @@ a {
 }
 
 li a {
-  transition: 0.3s all ease-in-out;
+  transition: 0.2s all ease-in-out;
 }
 
 /*-----------Tema Default----------------*/
@@ -165,10 +165,12 @@ nav.default {
 nav.default ul li a {
   color: #ffffff;
 }
-nav.default ul li a:hover {
+nav.default ul li a:hover,
+nav.default ul li a:focus {
   background: #ff0000;
   color: #ffffff;
 }
+
 main.default {
   background-color: #e8e8e8;
   color: #000;
@@ -191,7 +193,8 @@ nav.mercedes {
 nav.mercedes ul li a {
   color: #fff;
 }
-nav.mercedes ul li a:hover {
+nav.mercedes ul li a:hover,
+nav.mercedes ul li a:focus {
   color: #0ca597;
   background: #000;
 }
@@ -208,6 +211,24 @@ main.mercedes {
 
 .redbull .navbar-icon .navbar-label .navbar-checkbox_line {
   background: #fcd700;
+}
+
+nav.redbull {
+  background-color: #141414;
+  color: #fff;
+}
+
+nav.redbull ul li a {
+  color: #fff;
+}
+nav.redbull ul li a:hover,
+nav.redbull ul li a:focus {
+  color: #0ca597;
+  background: #000;
+}
+main.redbull {
+  background-color: #e8e8e8;
+  color: #000;
 }
 
 /*-----------Tema Ferrari----------------*/
