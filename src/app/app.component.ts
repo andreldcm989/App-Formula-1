@@ -19,7 +19,6 @@ export class AppComponent {
 
   ngOnInit() {
     this.theme = this.themeList.nativeElement.value;
-    console.log(this.theme);
   }
 
   inputCheckbox() {
@@ -36,6 +35,5 @@ export class AppComponent {
     this.main.nativeElement.classList.add(option);
     this.footer.nativeElement.classList.add(option);
     this.theme = option;
-    console.log(this.navbar.nativeElement.classList);
   }
 }

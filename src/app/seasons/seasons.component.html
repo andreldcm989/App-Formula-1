@@ -1,5 +1,22 @@
 <p>seasons works!</p>
 
-<ul *ngFor="let season of seasons; let index = index">
-  <li>{{ season }}</li>
-</ul>
+<label for="">Ordenar resultado:</label>
+<select #order name="sort" id="sort" (change)="orderSeasonsBy(order.value)">
+  <option value="asc">Mais antigo para mais novo</option>
+  <option value="desc" selected>Mais novo para mais antigo</option>
+</select>
+
+<table>
+  <thead>
+    <tr>
+      <th class="tabela">Temporada</th>
+      <th class="tabela">Etapas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let season of seasons; let i = index">
+      <td class="tabela">{{ season }}</td>
+      <td class="tabela">{{ season }}</td>
+    </tr>
+  </tbody>
+</table>

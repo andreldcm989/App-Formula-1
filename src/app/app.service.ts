@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ResponseDrivers } from './model/drivers/ResponseDrivers';
+import { ResponseDrivers } from './model/ergast/drivers/ResponseDrivers';
 
 @Injectable({
   providedIn: 'root',
