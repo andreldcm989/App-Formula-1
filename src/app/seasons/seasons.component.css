@@ -1,7 +1,13 @@
 table {
-  border-collapse: collapse;
+  width: 100%;
 }
 
-.tabela {
-  border: 1px solid black;
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
 }

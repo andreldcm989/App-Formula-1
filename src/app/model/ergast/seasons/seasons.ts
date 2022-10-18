@@ -17,10 +17,11 @@ interface Season {
   url: string;
 }
 
-export interface table {
+export interface customTable {
   season: number;
-  standings: number;
-  drivers: number;
+  schedule: number;
+  drivers: string;
+  constructors: string;
+  driverWinnerId: string;
   driverWinner: string;
-  constructorWinner: string;
 }

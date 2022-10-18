@@ -1,8 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { table } from '../model/ergast/seasons/seasons';
+import { customTable } from '../model/ergast/seasons/seasons';
 import { SeasonsService } from './seasons.service';
 
 @Component({
@@ -13,22 +13,24 @@ import { SeasonsService } from './seasons.service';
 export class SeasonsComponent {
   displayedColumns: string[] = [
     'season',
-    'standings',
+    'schedule',
     'drivers',
+    'constructors',
+    'driverId',
     'driverWinner',
-    'constructorWinner',
   ];
-  dataSource!: MatTableDataSource<table>;
+  dataSource!: MatTableDataSource<customTable>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  seasons: number[] = [];
+  seasons: customTable[] = [];
   seasonsPageable: number[] = [];
   @ViewChild('order', { static: true }) order!: ElementRef;
 
   constructor(private service: SeasonsService) {
     this.getSeasons();
+    this.dataSource = new MatTableDataSource(this.seasons);
   }
 
   ngAfterViewInit() {
@@ -46,10 +48,7 @@ export class SeasonsComponent {
   }
 
   getSeasons() {
-    this.service.seasonsList().subscribe((response) => {
-      response.MRData.SeasonTable.Seasons.forEach((season) => {
-        this.seasons.push(Number.parseInt(season.season));
-      });
-    });
+    this.service.getSeasons();
+    this.seasons = this.service.seasonsList;
   }
 }
