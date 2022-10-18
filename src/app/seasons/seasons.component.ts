@@ -1,4 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { table } from '../model/ergast/seasons/seasons';
 import { SeasonsService } from './seasons.service';
 
 @Component({
@@ -7,11 +11,38 @@ import { SeasonsService } from './seasons.service';
   styleUrls: ['./seasons.component.css'],
 })
 export class SeasonsComponent {
+  displayedColumns: string[] = [
+    'season',
+    'standings',
+    'drivers',
+    'driverWinner',
+    'constructorWinner',
+  ];
+  dataSource!: MatTableDataSource<table>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   seasons: number[] = [];
+  seasonsPageable: number[] = [];
   @ViewChild('order', { static: true }) order!: ElementRef;
 
   constructor(private service: SeasonsService) {
     this.getSeasons();
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   getSeasons() {
@@ -19,19 +50,6 @@ export class SeasonsComponent {
       response.MRData.SeasonTable.Seasons.forEach((season) => {
         this.seasons.push(Number.parseInt(season.season));
       });
-      this.orderSeasonsBy(this.order.nativeElement.value);
     });
-  }
-
-  orderSeasonsBy(order: string) {
-    if (order === 'desc') {
-      this.seasons = this.seasons.sort((a, b) => {
-        return b - a;
-      });
-    } else {
-      this.seasons = this.seasons.sort((a, b) => {
-        return a - b;
-      });
-    }
   }
 }

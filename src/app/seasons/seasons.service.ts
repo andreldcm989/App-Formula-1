@@ -14,6 +14,8 @@ export class SeasonsService {
   constructor(private http: HttpClient) {}
 
   seasonsList() {
-    return this.http.get<Response>(`${this.API}/seasons${this.FORMAT}`);
+    return this.http.get<Response>(
+      `${this.API}/seasons${this.FORMAT}?limit=100`
+    );
   }
 }

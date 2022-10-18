@@ -16,3 +16,11 @@ interface Season {
   season: string;
   url: string;
 }
+
+export interface table {
+  season: number;
+  standings: number;
+  drivers: number;
+  driverWinner: string;
+  constructorWinner: string;
+}
