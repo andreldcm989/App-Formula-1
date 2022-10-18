@@ -21,17 +21,16 @@ export class SeasonsService {
     return this.http
       .get<Standings>(`${this.API}/driverStandings/1${this.FORMAT}?limit=100`)
       .subscribe((res) => {
-        res.MRData.StandingsTable.StandingsLists.forEach((st, i) => {
-          console.log(st.DriverStandings[i]);
-          // let table: customTable = {
-          //   season: Number.parseInt(st.season),
-          //   schedule: Number.parseInt(st.round),
-          //   drivers: 'Ver Pilotos',
-          //   constructors: 'Ver Equipes',
-          //   driverWinnerId: st.DriverStandings[i].Driver.driverId,
-          //   driverWinner: `${st.DriverStandings[i].Driver.givenName} ${st.DriverStandings[i].Driver.familyName}`,
-          // };
-          // this.seasonsList.push(table);
+        res.MRData.StandingsTable.StandingsLists.forEach((st) => {
+          let table: customTable = {
+            season: Number.parseInt(st.season),
+            schedule: Number.parseInt(st.round),
+            drivers: 'Ver Pilotos',
+            constructors: 'Ver Equipes',
+            driverWinnerId: st.DriverStandings[0].Driver.driverId,
+            driverWinner: `${st.DriverStandings[0].Driver.givenName} ${st.DriverStandings[0].Driver.familyName}`,
+          };
+          this.seasonsList.push(table);
         });
       });
   }
