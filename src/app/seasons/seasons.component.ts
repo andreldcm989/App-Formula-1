@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,7 +16,6 @@ export class SeasonsComponent {
     'schedule',
     'drivers',
     'constructors',
-    'driverId',
     'driverWinner',
   ];
   dataSource!: MatTableDataSource<customTable>;
@@ -26,7 +25,6 @@ export class SeasonsComponent {
 
   seasons: customTable[] = [];
   seasonsPageable: number[] = [];
-  @ViewChild('order', { static: true }) order!: ElementRef;
 
   constructor(private service: SeasonsService) {
     this.getSeasons();

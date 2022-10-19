@@ -7,6 +7,8 @@ import { SeasonsService } from './seasons.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [SeasonsComponent],
@@ -16,6 +18,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatPaginatorModule,
     MatTableModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatSortModule,
   ],
   providers: [SeasonsService],
 })
