@@ -1,5 +1,16 @@
+.seasons {
+  width: 100%;
+  height: auto;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightslategray;
+}
+
 table {
   width: 100%;
+  transition: 0.3s all ease-in-out;
 }
 
 .mat-form-field {
@@ -9,5 +20,5 @@ table {
 
 td,
 th {
-  width: 25%;
+  cursor: pointer;
 }
