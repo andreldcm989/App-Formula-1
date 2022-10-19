@@ -1,6 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { pipe, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { customTable } from '../model/ergast/seasons/seasons';
 import { Standings } from '../model/ergast/standings/standings';
@@ -11,7 +10,7 @@ import { Standings } from '../model/ergast/standings/standings';
 export class SeasonsService {
   private readonly API: string = environment.ERGAST_API;
   private readonly FORMAT: string = environment.FORMAT;
-  private readonly headers = environment.HEADERS;
+  private readonly headers = environment.RAPIDAPI_F1_HEADERS;
 
   seasonsList: customTable[] = [];
 
