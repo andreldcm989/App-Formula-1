@@ -30,17 +30,17 @@
       </ng-container>
 
       <ng-container matColumnDef="drivers">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Pilotos</th>
+        <th mat-header-cell *matHeaderCellDef>Pilotos</th>
         <td mat-cell *matCellDef="let row"><a routerlink="">Ver Pilotos</a></td>
       </ng-container>
 
       <ng-container matColumnDef="constructors">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Equipes</th>
+        <th mat-header-cell *matHeaderCellDef>Equipes</th>
         <td mat-cell *matCellDef="let row"><a routerlink="">Ver Equipes</a></td>
       </ng-container>
 
       <ng-container matColumnDef="driverWinner">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>1º Pos.</th>
+        <th mat-header-cell *matHeaderCellDef>Campeão</th>
         <td mat-cell *matCellDef="let row">{{ row.driverWinner }}</td>
       </ng-container>
 

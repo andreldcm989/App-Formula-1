@@ -18,20 +18,23 @@ export class SeasonsService {
   constructor(private http: HttpClient) {}
 
   getSeasons() {
-    return this.http
-      .get<Standings>(`${this.API}/driverStandings/1${this.FORMAT}?limit=100`)
-      .subscribe((res) => {
-        res.MRData.StandingsTable.StandingsLists.forEach((st) => {
-          let table: customTable = {
-            season: Number.parseInt(st.season),
-            schedule: Number.parseInt(st.round),
-            drivers: 'Ver Pilotos',
-            constructors: 'Ver Equipes',
-            driverWinnerId: st.DriverStandings[0].Driver.driverId,
-            driverWinner: `${st.DriverStandings[0].Driver.givenName} ${st.DriverStandings[0].Driver.familyName}`,
-          };
-          this.seasonsList.push(table);
+    if (this.seasonsList.length == 0) {
+      return this.http
+        .get<Standings>(`${this.API}/driverStandings/1${this.FORMAT}?limit=100`)
+        .subscribe((res) => {
+          res.MRData.StandingsTable.StandingsLists.forEach((st) => {
+            let table: customTable = {
+              season: Number.parseInt(st.season),
+              schedule: Number.parseInt(st.round),
+              drivers: 'Ver Pilotos',
+              constructors: 'Ver Equipes',
+              driverWinnerId: st.DriverStandings[0].Driver.driverId,
+              driverWinner: `${st.DriverStandings[0].Driver.givenName} ${st.DriverStandings[0].Driver.familyName}`,
+            };
+            this.seasonsList.push(table);
+          });
         });
-      });
+    }
+    return;
   }
 }

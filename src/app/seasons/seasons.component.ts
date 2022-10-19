@@ -32,8 +32,13 @@ export class SeasonsComponent {
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    setTimeout(() => {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      this.paginator._intl.itemsPerPageLabel = 'Itens por página';
+      this.paginator._intl.previousPageLabel = 'Página anterior';
+      this.paginator._intl.nextPageLabel = 'Próxima página';
+    }, 200);
   }
 
   applyFilter(event: Event) {
@@ -46,7 +51,11 @@ export class SeasonsComponent {
   }
 
   getSeasons() {
-    this.service.getSeasons();
-    this.seasons = this.service.seasonsList;
+    console.log(this.service.seasonsList);
+    if (this.seasons.length == 0) {
+      this.service.getSeasons();
+      this.seasons = this.service.seasonsList;
+      return;
+    }
   }
 }
