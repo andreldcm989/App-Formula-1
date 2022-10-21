@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { CurrentComponent } from './current/current.component';
 
 const routes: Routes = [
   {
@@ -8,8 +8,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./seasons/seasons.module').then((m) => m.SeasonsModule),
   },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'current', pathMatch: 'full' },
+  { path: 'current', component: CurrentComponent },
 ];
 
 @NgModule({

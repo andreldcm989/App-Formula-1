@@ -6,7 +6,7 @@ import { currentSeason, RaceWeekend } from '../model/rapidAPI/CurrentSeason';
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService {
+export class CurrentService {
   private readonly API = environment.RAPIDAPI_F1;
   private readonly HEADERS = environment.RAPIDAPI_F1_HEADERS;
   private params: HttpParams = new HttpParams();

@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { RaceWeekend } from '../model/rapidAPI/CurrentSeason';
-import { HomeService } from './home.service';
+import { CurrentService } from './current.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-current',
+  templateUrl: './current.component.html',
+  styleUrls: ['./current.component.css'],
 })
-export class HomeComponent {
+export class CurrentComponent {
   raceWeekends: RaceWeekend[] = [];
   races: RaceWeekend[] = [];
 
-  constructor(private service: HomeService) {
+  constructor(private service: CurrentService) {
     this.getCurrentSeason();
   }
 
