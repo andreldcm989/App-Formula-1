@@ -1,14 +1,7 @@
-export interface currentSeason {
-  get: string;
-  parameters: Parameters;
-  errors: string[];
-  results: number;
-  response: RaceWeekend[];
-}
+import { ResponseApi } from './ResponseApi';
 
-interface Parameters {
-  season?: string;
-  timezone?: string;
+export interface currentSeason extends ResponseApi {
+  response: RaceWeekend[];
 }
 
 export interface RaceWeekend {

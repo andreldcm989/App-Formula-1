@@ -51,7 +51,6 @@ export class SeasonsComponent {
   }
 
   getSeasons() {
-    console.log(this.service.seasonsList);
     if (this.seasons.length == 0) {
       this.service.getSeasons();
       this.seasons = this.service.seasonsList;

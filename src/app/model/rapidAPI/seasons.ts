@@ -1,7 +1,5 @@
-export interface Seasons {
-  get: string;
-  parameters: [];
-  errors: [];
-  results: number;
+import { ResponseApi } from './ResponseApi';
+
+export interface Seasons extends ResponseApi {
   response: number[];
 }

@@ -1,0 +1,56 @@
+.container {
+  width: 900px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  grid-template-rows: 1fr;
+  gap: 5px #ffffff;
+}
+
+.um,
+.steps {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid red;
+}
+
+.steps {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+  font-size: 0.75rem;
+  border-collapse: unset;
+}
+
+thead {
+  background-color: #0000dd;
+  color: #ffffff;
+}
+
+tbody {
+  background-color: rgb(199, 211, 234);
+}
+
+tr {
+  color: black;
+}
+
+td {
+  text-align: center;
+  border-radius: 5px;
+  width: 100%;
+}
+tr:hover,
+tr:active {
+  background-color: #0000dd;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

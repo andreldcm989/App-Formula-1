@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RaceWeekend } from '../model/rapidAPI/currentSeason';
+import { RaceWeekend } from '../model/rapidAPI/CurrentSeason';
 import { HomeService } from './home.service';
 
 @Component({
@@ -8,7 +8,8 @@ import { HomeService } from './home.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
-  raceWeekend: RaceWeekend[] = [];
+  raceWeekends: RaceWeekend[] = [];
+  races: RaceWeekend[] = [];
 
   constructor(private service: HomeService) {
     this.getCurrentSeason();
@@ -16,6 +17,9 @@ export class HomeComponent {
 
   getCurrentSeason() {
     this.service.getCurrentSeason();
-    this.raceWeekend = this.service.raceWeekend;
+    this.raceWeekends = this.service.raceWeekend;
+    setTimeout(() => {
+      this.races = this.raceWeekends.filter((race) => race.type == 'Race');
+    }, 1000);
   }
 }

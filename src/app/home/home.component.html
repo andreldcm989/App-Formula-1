@@ -1,3 +1,30 @@
-<p>home works!</p>
-
-<table></table>
+<div class="container">
+  <div class="steps">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="3">
+            <a href="">Clique aqui e veja o resultado da Temporada Atual</a>
+          </th>
+        </tr>
+        <tr>
+          <th>Etapa</th>
+          <th>Data e Hora (GMT -3)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let race of races">
+          <td colspan="3">
+            <a href="#">
+              {{ race.competition.name }} |
+              {{ race.date | date: "dd/MM/yyyy HH:mm" }} | {{ race.status }}
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="um">Um</div>
+  <div class="um">Um</div>
+</div>

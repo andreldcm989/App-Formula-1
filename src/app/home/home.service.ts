@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { currentSeason, RaceWeekend } from '../model/rapidAPI/currentSeason';
+import { currentSeason, RaceWeekend } from '../model/rapidAPI/CurrentSeason';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +16,9 @@ export class HomeService {
   constructor(private http: HttpClient) {}
 
   getCurrentSeason() {
-    if (this.raceWeekend.length == 0) {
+    let table = localStorage.getItem('raceWeekends');
+    console.log(this.raceWeekend.length);
+    if (table == null) {
       this.params = this.params.set(
         'season',
         new Date(Date.now()).getFullYear()
@@ -30,8 +32,14 @@ export class HomeService {
         .subscribe((res) => {
           res.response.forEach((race) => {
             this.raceWeekend.push(race);
+            localStorage.setItem(
+              'raceWeekends',
+              JSON.stringify(this.raceWeekend)
+            );
           });
         });
+    } else {
+      this.raceWeekend = JSON.parse(table);
     }
     return;
   }
