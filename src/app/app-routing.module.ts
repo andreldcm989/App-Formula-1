@@ -9,7 +9,6 @@ const routes: Routes = [
       import('./seasons/seasons.module').then((m) => m.SeasonsModule),
   },
   { path: '', redirectTo: 'current', pathMatch: 'full' },
-  { path: 'current', component: CurrentComponent },
 ];
 
 @NgModule({

@@ -11,13 +11,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { CurrentComponent } from './current/current.component';
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { CurrentModule } from './current/current.module';
 registerLocaleData(ptBr);
 
 @NgModule({
-  declarations: [AppComponent, CurrentComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CurrentModule,
     HttpClientModule,
     FormsModule,
     MatTableModule,
