@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Race } from '../model/ergast/seasons/CurrentSeason';
+import { Race } from '../model/ergast/races/Races';
 import { CurrentService } from './current.service';
 
 @Component({

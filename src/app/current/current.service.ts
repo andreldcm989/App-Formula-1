@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { APIData, Race } from '../model/ergast/seasons/CurrentSeason';
+import { Race } from '../model/ergast/races/Races';
+import { APIData } from '../model/ergast/seasons/CurrentSeason';
 
 @Injectable({
   providedIn: 'root',

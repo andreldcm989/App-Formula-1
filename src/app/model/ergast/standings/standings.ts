@@ -1,3 +1,4 @@
+import { Constructor } from '../constructors/Constructors';
 import { Driver } from '../drivers/Driver';
 import { MRData } from '../MRData';
 
@@ -26,16 +27,5 @@ interface DriverStanding {
   points: string;
   wins: string;
   Driver: Driver;
-  Constructors: Constructors[];
-}
-
-interface Constructors {
-  Contructors: Constructor[];
-}
-
-interface Constructor {
-  constructorId: string;
-  url: string;
-  name: string;
-  nationality: string;
+  Constructors: Constructor[];
 }
