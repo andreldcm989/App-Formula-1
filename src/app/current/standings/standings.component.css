@@ -1,0 +1,16 @@
+.standings {
+  margin: 0;
+  height: 100%;
+  display: flex;
+}
+
+.standings-drivers,
+.standings-constructors {
+  width: 50%;
+  background-color: blueviolet;
+}
+
+.standings-constructors {
+  width: 50%;
+  background-color: burlywood;
+}

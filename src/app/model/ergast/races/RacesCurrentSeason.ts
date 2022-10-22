@@ -1,5 +1,5 @@
 import { MRData } from '../MRData';
-import { Race } from '../races/Races';
+import { Race } from './Races';
 
 export interface APIData {
   MRData: CurrentSeason;

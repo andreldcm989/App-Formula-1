@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { customTable } from '../model/ergast/seasons/seasons';
-import { Standings } from '../model/ergast/standings/standings';
+import { Standings } from '../model/ergast/standings/StandingsSeasons';
 
 @Injectable({
   providedIn: 'root',
