@@ -14,11 +14,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let race of races">
+        <tr *ngFor="let race of raceWeekends">
           <td colspan="3">
             <a routerLink="">
-              {{ race.competition.name }} |
-              {{ race.date | date: "dd/MM/yyyy HH:mm" }} | {{ race.status }}
+              {{ race.Circuit.Location.country }} - {{ race.raceName }} |
+              {{ race.date | date: "dd/MM/yyyy" }}
+              {{ race.time }}
             </a>
           </td>
         </tr>

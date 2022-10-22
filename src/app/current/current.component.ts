@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RaceWeekend } from '../model/rapidAPI/CurrentSeason';
+import { Race } from '../model/ergast/seasons/CurrentSeason';
 import { CurrentService } from './current.service';
 
 @Component({
@@ -8,8 +8,7 @@ import { CurrentService } from './current.service';
   styleUrls: ['./current.component.css'],
 })
 export class CurrentComponent {
-  raceWeekends: RaceWeekend[] = [];
-  races: RaceWeekend[] = [];
+  raceWeekends: Race[] = [];
 
   constructor(private service: CurrentService) {
     this.getCurrentSeason();
@@ -17,9 +16,8 @@ export class CurrentComponent {
 
   getCurrentSeason() {
     this.service.getCurrentSeason();
-    this.raceWeekends = this.service.raceWeekend;
     setTimeout(() => {
-      this.races = this.raceWeekends.filter((race) => race.type == 'Race');
+      this.raceWeekends = this.service.raceWeekend;
     }, 1000);
   }
 }
