@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { customTable } from '../model/ergast/seasons/seasons';
-import { Standings } from '../model/ergast/standings/StandingsSeasons';
+import { customTable } from '../model/ergast/seasons/SeasonsList';
+import { CurrentDriversStanding } from '../model/ergast/standings/CurrentDriverStandings';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,9 @@ export class SeasonsService {
   getSeasons() {
     if (this.seasonsList.length == 0) {
       return this.http
-        .get<Standings>(`${this.API}/driverStandings/1${this.FORMAT}?limit=100`)
+        .get<CurrentDriversStanding>(
+          `${this.API}/driverStandings/1${this.FORMAT}?limit=100`
+        )
         .subscribe((res) => {
           res.MRData.StandingsTable.StandingsLists.forEach((st) => {
             let table: customTable = {

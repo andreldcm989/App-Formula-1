@@ -16,8 +16,6 @@ export class CurrentComponent {
 
   getCurrentSeason() {
     this.service.getCurrentSeason();
-    setTimeout(() => {
-      this.raceWeekends = this.service.raceWeekend;
-    }, 1000);
+    this.raceWeekends = this.service.raceWeekend;
   }
 }

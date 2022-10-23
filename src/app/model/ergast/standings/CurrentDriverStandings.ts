@@ -1,14 +1,22 @@
 import { Constructor } from '../constructors/Constructors';
 import { Driver } from '../drivers/Driver';
 import { MRData } from '../MRData';
-import { StandingsTable } from './StandingsSeasons';
+import { StandingsLists, StandingsTable } from './StandingsSeasons';
 
 export interface CurrentDriversStanding {
   MRData: DriversStandings;
 }
 
 export interface DriversStandings extends MRData {
-  StandingsTable: StandingsTable;
+  StandingsTable: DriverStandingsTable;
+}
+
+interface DriverStandingsTable extends StandingsTable {
+  StandingsLists: DriverStandingsLists[];
+}
+
+interface DriverStandingsLists extends StandingsLists {
+  DriverStandings: DriverStanding[];
 }
 
 export interface DriverStanding {

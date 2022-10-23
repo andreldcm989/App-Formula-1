@@ -6,5 +6,7 @@ export interface CurrentConstructorStanding {
 }
 
 export interface ConstructorsStandings extends MRData {
-  StandingsTable: StandingsTable;
+  StandingsTable: ConstructorStandingsTable;
 }
+
+interface ConstructorStandingsTable extends StandingsTable {}
