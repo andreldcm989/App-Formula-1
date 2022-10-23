@@ -1,8 +1,31 @@
 <div class="standings">
   <div class="standings-drivers">
-    <p>Drivers</p>
-  </div>
-  <div class="standings-constructors">
-    <p>Constructors</p>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="7">Classificação Geral de Pilotos - Etapa</th>
+        </tr>
+        <tr>
+          <th>Pos.</th>
+          <th>Nº Piloto</th>
+          <th>Cód.</th>
+          <th>Piloto</th>
+          <th>País</th>
+          <th>Equipe</th>
+          <th>Vitórias</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let driver of driversStandings">
+          <td>{{ driver.position }}</td>
+          <td>{{ driver.Driver.permanentNumber }}</td>
+          <td>{{ driver.Driver.code }}</td>
+          <td>{{ driver.Driver.givenName }} {{ driver.Driver.familyName }}</td>
+          <td>{{ driver.Driver.nationality }}</td>
+          <td>{{ driver.Constructors[0].name }}</td>
+          <td>{{ driver.wins }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

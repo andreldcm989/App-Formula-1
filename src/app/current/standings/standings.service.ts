@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs';
 import {
   CurrentDriversStanding,
   DriverStanding,
@@ -19,15 +20,15 @@ export class StandingsService {
   constructor(private http: HttpClient) {}
 
   getDriverStandings() {
-    console.log('fui chamado');
     return this.http
       .get<CurrentDriversStanding>(
         `${this.API}/current/driverStandings${this.TYPE}`
       )
-      .subscribe((res) => {
-        this.driversStandings =
-          res.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-        console.log(this.driversStandings);
-      });
+      .pipe(
+        tap((res) => {
+          this.driversStandings =
+            res.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+        })
+      );
   }
 }

@@ -4,13 +4,17 @@
   display: flex;
 }
 
-.standings-drivers,
-.standings-constructors {
-  width: 50%;
-  background-color: blueviolet;
+.standings-drivers {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  color: #000000;
 }
 
-.standings-constructors {
-  width: 50%;
-  background-color: burlywood;
+table {
+  width: 100%;
+  height: 100%;
+  font-size: 0.75rem;
+  border-collapse: unset;
+  text-align: center;
 }

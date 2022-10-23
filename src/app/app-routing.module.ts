@@ -8,7 +8,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./seasons/seasons.module').then((m) => m.SeasonsModule),
   },
-  { path: '', redirectTo: 'current', pathMatch: 'full' },
+  { path: '', redirectTo: 'current/standings', pathMatch: 'full' },
 ];
 
 @NgModule({

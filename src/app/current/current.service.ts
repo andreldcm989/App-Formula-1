@@ -17,7 +17,6 @@ export class CurrentService {
 
   getCurrentSeason() {
     let table = localStorage.getItem('raceWeekends');
-    console.log(this.raceWeekend.length);
     if (table == null) {
       return this.http
         .get<APIData>(`${this.API}/current${this.FORMAT}`)
