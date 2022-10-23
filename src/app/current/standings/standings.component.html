@@ -10,7 +10,9 @@
     <table>
       <thead>
         <tr>
-          <th colspan="8">Classificação Geral de Pilotos - Etapa</th>
+          <th colspan="8">
+            Classificação Geral de Pilotos - Etapa {{ round }}
+          </th>
         </tr>
         <tr>
           <th>Pos.</th>
@@ -44,11 +46,27 @@
     <table>
       <thead>
         <tr>
-          <th colspan="8">Classificação Geral de Construtores - Etapa</th>
+          <th colspan="5">
+            Classificação Geral de Construtores - Etapa {{ round }}
+          </th>
         </tr>
-        <tr></tr>
+        <tr>
+          <th>Pos.</th>
+          <th>Equipe</th>
+          <th>País</th>
+          <th>Pontos</th>
+          <th>Vitórias</th>
+        </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        <tr *ngFor="let constructor of constructorsStandings">
+          <td>{{ constructor.position }}º</td>
+          <td>{{ constructor.Constructor.name }}</td>
+          <td>{{ constructor.Constructor.nationality }}</td>
+          <td>{{ constructor.points }}</td>
+          <td>{{ constructor.wins }}</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </div>

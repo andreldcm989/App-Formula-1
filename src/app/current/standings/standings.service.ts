@@ -2,10 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs';
 import {
+  ConstructorStanding,
+  CurrentConstructorStanding,
+} from 'src/app/model/ergast/standings/CurrentConstructorStandings';
+import {
   CurrentDriversStanding,
   DriverStanding,
 } from 'src/app/model/ergast/standings/CurrentDriverStandings';
-import { StandingsLists } from 'src/app/model/ergast/standings/StandingsSeasons';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,6 +19,7 @@ export class StandingsService {
   private readonly TYPE = environment.FORMAT;
 
   driversStandings: DriverStanding[] = [];
+  constructorsStandings: ConstructorStanding[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -28,6 +32,19 @@ export class StandingsService {
         tap((res) => {
           this.driversStandings =
             res.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+        })
+      );
+  }
+
+  getConstructorStandings() {
+    return this.http
+      .get<CurrentConstructorStanding>(
+        `${this.API}/current/constructorStandings${this.TYPE}`
+      )
+      .pipe(
+        tap((res) => {
+          this.constructorsStandings =
+            res.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
         })
       );
   }
