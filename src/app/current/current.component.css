@@ -1,5 +1,5 @@
 .container {
-  width: 900px;
+  width: 980px;
   height: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
@@ -7,15 +7,12 @@
   gap: 5px #ffffff;
 }
 
-.um,
+.resultTable,
 .steps {
   margin: 5px;
   padding: 5px;
   border: 1px solid red;
-}
-
-.steps {
-  overflow-x: auto;
+  overflow: auto;
 }
 
 table {
