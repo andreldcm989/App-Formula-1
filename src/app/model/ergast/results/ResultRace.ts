@@ -15,7 +15,7 @@ export interface ResultRaceTable extends RaceTable {
   Races: RaceFinish[];
 }
 
-interface RaceFinish extends Race {
+export interface RaceFinish extends Race {
   Results: ResultRace[];
 }
 

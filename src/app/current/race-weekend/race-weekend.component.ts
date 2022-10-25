@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RaceTable } from 'src/app/model/ergast/races/Races';
 import {
+  RaceFinish,
   RaceResultsFinish,
   ResultRace,
   ResultRaceTable,
@@ -33,21 +34,14 @@ export class RaceWeekendComponent implements OnInit {
     this.route.params.subscribe((param) => {
       this.round = Number.parseInt(param['round']);
       console.log(this.round);
-      setTimeout(() => {
-        this.getResultRace(this.round);
-      });
+      let race = this.resultAPI.Races.filter(
+        (r) => Number.parseInt(r.round) == this.round
+      );
+      console.log(race);
     });
   }
 
   getResultType() {
     this.resultTableRoundType = this.resultType.nativeElement.value;
-  }
-
-  getResultRace(round: number) {
-    let race = this.resultAPI.Races.filter(
-      (r) => Number.parseInt(r.round) == round
-    );
-    this.resultRaces = race[0].Results;
-    console.log(this.resultRaces);
   }
 }
