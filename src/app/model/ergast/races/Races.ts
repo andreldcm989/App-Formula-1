@@ -1,5 +1,9 @@
 import { Circuit } from '../circuits/Circuits';
 
+export interface RaceTable {
+  season: string;
+  round?: string;
+}
 export interface Race {
   season: string;
   round: string;
@@ -8,10 +12,10 @@ export interface Race {
   Circuit: Circuit;
   date: string;
   time: string;
-  FirstPractice: DateTime;
-  SecondPractice: DateTime;
-  ThirdPractice: DateTime;
-  Qualifying: DateTime;
+  FirstPractice?: DateTime;
+  SecondPractice?: DateTime;
+  ThirdPractice?: DateTime;
+  Qualifying?: DateTime;
 }
 
 interface DateTime {

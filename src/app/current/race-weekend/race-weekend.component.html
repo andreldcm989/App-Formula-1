@@ -1,1 +1,51 @@
-<p>race-weekend works!</p>
+<div class="results">
+  <label>
+    Mostrando resultados da:
+    <select #resultType name="resultType" (change)="getResultType()">
+      <option value="race" selected>Corrida</option>
+      <option value="qualifying">Qualificação</option>
+      <option value="qualifying">Corrida Sprint</option>
+    </select>
+  </label>
+
+  <div class="resultRace">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="10">
+            Etapa {{ resultAPI.Races[0].round }} -
+            {{ resultAPI.Races[0].raceName }} -
+            {{ resultAPI.Races[0].Circuit.Location.locality }},
+            {{ resultAPI.Races[0].Circuit.Location.country }}
+          </th>
+        </tr>
+        <tr>
+          <th>Pos.</th>
+          <th>Nº</th>
+          <th>Piloto</th>
+          <th>Equipe</th>
+          <th>Pontos</th>
+          <th>Pos. Inicial</th>
+          <th>Voltas</th>
+          <th>Tempo Total</th>
+          <th>Melhor Volta</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let res of resultRaces">
+          <td>{{ res.position }}º</td>
+          <td>{{ res.number }}</td>
+          <td>{{ res.Driver.givenName }} {{ res.Driver.familyName }}</td>
+          <td>{{ res.Constructor.name }}</td>
+          <td>{{ res.points }}</td>
+          <td>{{ res.grid }}</td>
+          <td>{{ res.laps }}</td>
+          <td>{{ res.Time.time }}</td>
+          <td>{{ res.FastestLap.Time.time }} - {{ res.FastestLap.rank }}º</td>
+          <td>{{ res.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

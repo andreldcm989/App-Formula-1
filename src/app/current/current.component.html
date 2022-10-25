@@ -18,7 +18,7 @@
       <tbody>
         <tr *ngFor="let race of raceWeekends">
           <td colspan="3">
-            <a routerLink="">
+            <a [routerLink]="['/current', race.round]">
               {{ race.Circuit.Location.country }} - {{ race.raceName }} |
               {{ race.date | date: "dd/MM/yyyy" }}
               {{ race.time }}

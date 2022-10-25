@@ -20,32 +20,40 @@ export class StandingsService {
 
   driversStandings: DriverStanding[] = [];
   constructorsStandings: ConstructorStanding[] = [];
+  round!: string;
 
   constructor(private http: HttpClient) {}
 
   getDriverStandings() {
-    return this.http
-      .get<CurrentDriversStanding>(
-        `${this.API}/current/driverStandings${this.TYPE}`
-      )
-      .pipe(
-        tap((res) => {
-          this.driversStandings =
-            res.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-        })
-      );
+    if (this.driversStandings.length == 0) {
+      return this.http
+        .get<CurrentDriversStanding>(
+          `${this.API}/current/driverStandings${this.TYPE}`
+        )
+        .pipe(
+          tap((res) => {
+            this.driversStandings =
+              res.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+            this.round = res.MRData.StandingsTable.StandingsLists[0].round;
+          })
+        );
+    }
+    return;
   }
 
   getConstructorStandings() {
-    return this.http
-      .get<CurrentConstructorStanding>(
-        `${this.API}/current/constructorStandings${this.TYPE}`
-      )
-      .pipe(
-        tap((res) => {
-          this.constructorsStandings =
-            res.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
-        })
-      );
+    if (this.constructorsStandings.length == 0) {
+      return this.http
+        .get<CurrentConstructorStanding>(
+          `${this.API}/current/constructorStandings${this.TYPE}`
+        )
+        .pipe(
+          tap((res) => {
+            this.constructorsStandings =
+              res.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+          })
+        );
+    }
+    return;
   }
 }
