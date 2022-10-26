@@ -23,14 +23,15 @@ export class RaceWeekendService {
     if (this.resultApi == undefined) {
       let params = new HttpParams();
       params = params.set('limit', '500');
-
       return this.http
         .get<RaceResultsFinish>(`${this.API}/current/results${this.FORMAT}`, {
           params,
         })
-        .subscribe((res) => {
-          this.resultApi = res.MRData.RaceTable;
-        });
+        .pipe(
+          tap((res) => {
+            this.resultApi = res.MRData.RaceTable;
+          })
+        );
     }
     return;
   }

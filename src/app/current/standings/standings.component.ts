@@ -16,10 +16,7 @@ export class StandingsComponent implements OnInit {
   resultTableSeasonType!: string;
   round: string = '';
 
-  constructor(
-    private service: StandingsService,
-    private raceWeekendService: RaceWeekendService
-  ) {
+  constructor(private service: StandingsService) {
     this.getDriversStandings();
     setTimeout(() => {
       this.resultTableSeasonType = this.resultType.nativeElement.value;
@@ -28,7 +25,6 @@ export class StandingsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.raceWeekendService.getResultsRaces();
     this.driversStandings = this.service.driversStandings;
   }
 

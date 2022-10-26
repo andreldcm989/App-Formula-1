@@ -1,4 +1,4 @@
-<div class="results">
+<div class="results" *ngIf="resultAPI | async as results; else teste">
   <label>
     Mostrando resultados da:
     <select #resultType name="resultType" (change)="getResultType()">
@@ -11,14 +11,19 @@
   <div class="resultRace">
     <table>
       <thead>
-        <!-- <tr>
+        <tr>
           <th colspan="10">
-            Etapa {{ resultAPI.Races[0].round }} -
-            {{ resultAPI.Races[0].raceName }} -
-            {{ resultAPI.Races[0].Circuit.Location.locality }},
-            {{ resultAPI.Races[0].Circuit.Location.country }}
+            Etapa {{ results.MRData.RaceTable.Races[round - 1].round }} -
+            {{ results.MRData.RaceTable.Races[round - 1].raceName }} -
+            {{
+              results.MRData.RaceTable.Races[round - 1].Circuit.Location
+                .locality
+            }},
+            {{
+              results.MRData.RaceTable.Races[round - 1].Circuit.Location.country
+            }}
           </th>
-        </tr> -->
+        </tr>
         <tr>
           <th>Pos.</th>
           <th>Nº</th>
@@ -32,8 +37,8 @@
           <th>Status</th>
         </tr>
       </thead>
-      <tbody>
-        <tr *ngFor="let res of resultRaces">
+      <tbody *ngIf="resultsRound.length == 1; else teste">
+        <tr *ngFor="let res of resultsRound[0].Results">
           <td>{{ res.position }}º</td>
           <td>{{ res.number }}</td>
           <td>{{ res.Driver.givenName }} {{ res.Driver.familyName }}</td>
@@ -49,3 +54,4 @@
     </table>
   </div>
 </div>
+<ng-template #teste> Carregando... </ng-template>

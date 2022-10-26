@@ -1,11 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RaceTable } from 'src/app/model/ergast/races/Races';
+import { Observable, tap } from 'rxjs';
 import {
   RaceFinish,
   RaceResultsFinish,
   ResultRace,
-  ResultRaceTable,
 } from 'src/app/model/ergast/results/ResultRace';
 import { RaceWeekendService } from './race-weekend.service';
 
@@ -16,8 +15,8 @@ import { RaceWeekendService } from './race-weekend.service';
 })
 export class RaceWeekendComponent implements OnInit {
   @ViewChild('resultType', { static: false }) resultType!: ElementRef;
-  resultAPI!: ResultRaceTable;
-  resultRaces: ResultRace[] = [];
+  resultAPI: Observable<RaceResultsFinish> | undefined;
+  resultsRound: RaceFinish[] = [];
   round!: number;
   resultTableRoundType!: string;
 
@@ -25,6 +24,7 @@ export class RaceWeekendComponent implements OnInit {
     private route: ActivatedRoute,
     private service: RaceWeekendService
   ) {
+    this.resultAPI = this.service.getResultsRaces();
     setTimeout(() => {
       this.resultTableRoundType = this.resultType.nativeElement.value;
     });
@@ -33,11 +33,15 @@ export class RaceWeekendComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((param) => {
       this.round = Number.parseInt(param['round']);
-      console.log(this.round);
-      let race = this.resultAPI.Races.filter(
-        (r) => Number.parseInt(r.round) == this.round
-      );
-      console.log(race);
+      this.resultsRound.pop();
+      setTimeout(() => {
+        this.resultAPI?.subscribe((res) => {
+          this.resultsRound = res.MRData.RaceTable.Races.filter(
+            (r) => Number.parseInt(r.round) == this.round
+          );
+          console.log(this.resultsRound);
+        });
+      }, 1000);
     });
   }
 
